@@ -10,8 +10,8 @@ export default {
   plugins: [
     require('daisyui'),
   ],
-  daisyui: {
-    themes: ["winter", "night"]// The element that receives theme color CSS variables
-  },
+  // daisyui: {
+  //   themes: ["winter", "night"]// The element that receives theme color CSS variables
+  // },
 }
 

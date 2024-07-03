@@ -5,7 +5,7 @@ import Navbar from "../Shared/Navbar";
 
 const Root = () => {
     return (
-        <div>
+        <div className="bg-[#1d2026]">
             <Navbar></Navbar>
             <Outlet></Outlet>
             {/* <Footer></Footer> */}
