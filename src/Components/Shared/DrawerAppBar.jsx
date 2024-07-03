@@ -14,9 +14,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link'; // Added Link component
+import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const theme = createTheme({
     palette: {
@@ -37,13 +37,13 @@ const navItems = [
     { label: 'Home', link: '/' },
     { label: 'Projects', link: '/projects' },
     { label: 'Skills', link: '/test' },
-    { label: 'About', link: '/about' },
     { label: 'Contact', link: '/contact' },
 ];
 
 function DrawerAppBar(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const location = useLocation(); // Add useLocation hook
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -63,9 +63,22 @@ function DrawerAppBar(props) {
                                 href={item.link}
                                 underline="none"
                                 color="inherit"
-                                sx={{ width: '100%', textAlign: 'center' }}
+                                sx={{
+                                    width: '100%',
+                                    textAlign: 'center',
+                                    '&:hover': {
+                                        color: 'yellow',
+                                        borderBottom: '2px solid yellow',
+                                    },
+                                }}
                             >
-                                <ListItemText primary={item.label} />
+                                <ListItemText
+                                    primary={item.label}
+                                    sx={{
+                                        color: location.pathname === item.link ? 'yellow' : 'inherit',
+                                        borderBottom: location.pathname === item.link ? '2px solid yellow' : 'none',
+                                    }} // Active route styling with bottom border
+                                />
                             </Link>
                         </ListItemButton>
                     </ListItem>
@@ -100,17 +113,28 @@ function DrawerAppBar(props) {
                         </Typography>
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                             {navItems.map((item) => (
-                                <Link
+                                <NavLink
                                     key={item.label}
-                                    href={item.link}
-                                    underline="none"
-                                    color="inherit"
-                                    sx={{ marginRight: 2 }}
+                                    to={item.link}
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'inherit',
+                                        marginRight: '16px',
+                                    }}
                                 >
-                                    <Button sx={{ color: '#fff' }}>
+                                    <Button
+                                        sx={{
+                                            color: location.pathname === item.link ? '#f73378' : '#fff',
+                                            borderBottom: location.pathname === item.link ? '2px solid #f73378' : 'none',
+                                            '&:hover': {
+                                                color: '#f73378',
+                                                borderBottom: '2px solid #f73378',
+                                            },
+                                        }} // Active route styling with hover
+                                    >
                                         {item.label}
                                     </Button>
-                                </Link>
+                                </NavLink>
                             ))}
                         </Box>
                     </Toolbar>

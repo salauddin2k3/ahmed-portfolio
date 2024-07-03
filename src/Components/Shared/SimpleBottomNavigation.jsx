@@ -5,26 +5,57 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 import BuildIcon from '@mui/icons-material/Build';
-import InfoIcon from '@mui/icons-material/Info';
-// import ContactMailIcon from '@mui/icons-material/ContactMail';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import { NavLink } from 'react-router-dom';
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const navItems = [
+    { label: 'Home', icon: <HomeIcon />, to: '/' },
+    { label: 'Projects', icon: <WorkIcon />, to: '/projects' },
+    { label: 'Skills', icon: <BuildIcon />, to: '/skills' },
+    { label: 'Contact', icon: <ContactMailIcon />, to: '/contact' },
+  ];
 
   return (
     <Box sx={{ width: '100%', position: 'fixed', bottom: 0 }}>
       <BottomNavigation
         showLabels
         value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
+        onChange={handleChange}
+        sx={{
+          '& .Mui-selected': {
+            color: '#f73378',
+            '& .MuiBottomNavigationAction-label': {
+              color: '#f73378',
+            },
+            '& .MuiSvgIcon-root': {
+              color: '#f73378',
+            },
+          },
+          '& .MuiBottomNavigationAction-label': {
+            color: '#686464',
+          },
+          '& .MuiSvgIcon-root': {
+            color: '#686464',
+          },
         }}
       >
-        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Projects" icon={<WorkIcon />} />
-        <BottomNavigationAction label="Skills" icon={<BuildIcon />} />
-        <BottomNavigationAction label="About" icon={<InfoIcon />} />
-        {/* <BottomNavigationAction label="Contact" icon={<ContactMailIcon />} /> */}
+        {navItems.map((item, index) => (
+          <BottomNavigationAction
+            key={item.label}
+            label={item.label}
+            icon={item.icon}
+            component={NavLink}
+            to={item.to}
+            sx={{ color: value === index ? '#f73378' : '#686464' }}
+          />
+        ))}
       </BottomNavigation>
     </Box>
   );
