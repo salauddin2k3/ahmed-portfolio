@@ -1,3 +1,6 @@
+import Contact from "../Contact/Contact";
+import Projects from "../Projects/Projects";
+import Skills from "../Skills/Skills";
 import Banner from "./Banner/Banner";
 
 
@@ -9,7 +12,17 @@ const Home = () => {
                     Logo
                 </div>
                 <div>
-                     <Banner></Banner>
+                    <Banner></Banner>
+
+                    <section id="skills">
+                        <Skills></Skills>
+                    </section>
+                    <section id="contact">
+                        <Contact></Contact>
+                    </section>
+                    <section id="projects">
+                        <Projects></Projects>
+                    </section>
                 </div>
             </div>
         </div>

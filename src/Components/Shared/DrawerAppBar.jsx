@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,9 +14,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NavLink, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+import { useLocation } from 'react-router-dom';
 
 const theme = createTheme({
     palette: {
@@ -34,19 +34,30 @@ const theme = createTheme({
 
 const drawerWidth = 240;
 const navItems = [
-    { label: 'Home', link: '/' },
-    { label: 'Projects', link: '/projects' },
-    { label: 'Skills', link: '/test' },
-    { label: 'Contact', link: '/contact' },
+    { label: 'Home', link: '/#top' },
+    { label: 'Skills', link: '#skills' },
+    { label: 'Projects', link: '#projects' },
+    { label: 'Contact', link: '#contact' },
 ];
 
 function DrawerAppBar(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const location = useLocation(); // Add useLocation hook
+    const location = useLocation();
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
+    };
+
+    const isActive = (item) => {
+        // Check if the current location matches the item's link
+        if (item.link === '/#top') {
+            // Special case for the "Home" link
+            return location.pathname === '/' && location.hash === '#top';
+        } else {
+            // For other links, check if the current location's hash matches the item's link
+            return location.hash === item.link;
+        }
     };
 
     const drawer = (
@@ -59,27 +70,19 @@ function DrawerAppBar(props) {
                 {navItems.map((item) => (
                     <ListItem key={item.label} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <Link
-                                href={item.link}
-                                underline="none"
-                                color="inherit"
-                                sx={{
-                                    width: '100%',
-                                    textAlign: 'center',
-                                    '&:hover': {
-                                        color: 'yellow',
-                                        borderBottom: '2px solid yellow',
-                                    },
-                                }}
+                            <HashLink
+                                smooth
+                                to={item.link}
+                                style={{ textDecoration: 'none', width: '100%', textAlign: 'center' }}
                             >
                                 <ListItemText
                                     primary={item.label}
                                     sx={{
-                                        color: location.pathname === item.link ? 'yellow' : 'inherit',
-                                        borderBottom: location.pathname === item.link ? '2px solid yellow' : 'none',
-                                    }} // Active route styling with bottom border
+                                        color: isActive(item) ? 'yellow' : 'inherit',
+                                        borderBottom: isActive(item) ? '2px solid yellow' : 'none',
+                                    }}
                                 />
-                            </Link>
+                            </HashLink>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -94,7 +97,7 @@ function DrawerAppBar(props) {
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <AppBar position="fixed" sx={{ backgroundColor: theme.palette.secondary.main }}>
-                    <Toolbar className='container mx-auto py-6'>
+                    <Toolbar className="container mx-auto py-6">
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"
@@ -109,12 +112,15 @@ function DrawerAppBar(props) {
                             component="div"
                             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                         >
-                            <NavLink to="/">Ahmed</NavLink>
+                            <HashLink smooth to="/#top" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                Ahmed
+                            </HashLink>
                         </Typography>
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                             {navItems.map((item) => (
-                                <NavLink
+                                <HashLink
                                     key={item.label}
+                                    smooth
                                     to={item.link}
                                     style={{
                                         textDecoration: 'none',
@@ -124,17 +130,17 @@ function DrawerAppBar(props) {
                                 >
                                     <Button
                                         sx={{
-                                            color: location.pathname === item.link ? '#f73378' : '#fff',
-                                            borderBottom: location.pathname === item.link ? '2px solid #f73378' : 'none',
+                                            color: isActive(item) ? '#f73378' : '#fff',
+                                            borderBottom: isActive(item) ? '2px solid #f73378' : 'none',
                                             '&:hover': {
                                                 color: '#f73378',
                                                 borderBottom: '2px solid #f73378',
                                             },
-                                        }} // Active route styling with hover
+                                        }}
                                     >
                                         {item.label}
                                     </Button>
-                                </NavLink>
+                                </HashLink>
                             ))}
                         </Box>
                     </Toolbar>

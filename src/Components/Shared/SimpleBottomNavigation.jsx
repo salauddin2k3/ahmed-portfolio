@@ -17,8 +17,8 @@ export default function SimpleBottomNavigation() {
 
   const navItems = [
     { label: 'Home', icon: <HomeIcon />, to: '/' },
-    { label: 'Projects', icon: <WorkIcon />, to: '/projects' },
     { label: 'Skills', icon: <BuildIcon />, to: '/skills' },
+    { label: 'Projects', icon: <WorkIcon />, to: '/projects' },
     { label: 'Contact', icon: <ContactMailIcon />, to: '/contact' },
   ];
 
