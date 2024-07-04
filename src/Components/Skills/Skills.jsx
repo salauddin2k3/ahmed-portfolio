@@ -1,10 +1,52 @@
+import Lottie from "lottie-react";
+import skillLottie from "../../../public/skills-lottie.json"
+import { MdOutlineMonitor } from "react-icons/md";
+import { FaHtml5, FaReact } from "react-icons/fa";
+import { IoLogoCss3 } from "react-icons/io";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { HiLightningBolt } from "react-icons/hi";
 
 
 const Skills = () => {
     return (
-        <div>
-            <h2>Skills</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa magni corrupti corporis in rem excepturi deserunt deleniti! Voluptate facilis alias, quis voluptatum et deserunt dolore neque magnam numquam eos impedit ab accusamus nostrum error voluptatem obcaecati aperiam omnis molestias? Non enim fuga repudiandae at ipsum repellat repellendus omnis pariatur praesentium reprehenderit eius veniam, nihil similique provident! Commodi vero optio labore provident impedit eveniet nesciunt earum, porro minima ipsum et ratione, saepe adipisci animi doloremque voluptate in ex delectus illum, ea nihil! Voluptatibus ab unde eius fugit aspernatur tempore. Sint vitae ducimus sit ipsam tenetur eos, praesentium reiciendis. Eaque eos fugit commodi. Aliquid, illum? Qui, aliquid! Debitis voluptatem, sequi et ipsum reiciendis quibusdam quae, nemo facere libero iure repudiandae adipisci impedit? Dolores quos vitae iusto ipsa impedit corrupti itaque tempora accusamus et culpa minus, similique doloremque totam dolorum animi ipsam deleniti? Obcaecati provident animi, aliquam accusamus sed cum culpa ullam est, ad inventore, accusantium natus vel pariatur dolor debitis facilis reprehenderit minima. Dignissimos delectus consectetur laudantium sunt consequuntur saepe mollitia molestiae distinctio fugiat! Officia doloremque beatae rerum labore ab et ratione a consectetur fugit nesciunt soluta reprehenderit rem asperiores nulla placeat atque eos veritatis, in repellat deserunt excepturi repudiandae dolor dolorum dignissimos. Natus, fugit. Quas pariatur, ea in quidem eius cum consequuntur deserunt sapiente quia repudiandae doloribus. Aut quas tenetur, earum, provident laudantium est recusandae similique officia alias, ducimus unde enim nostrum nesciunt maiores at? Impedit, ratione quidem est nemo minus vero corrupti eaque fugit officiis consequuntur laborum asperiores voluptatum unde assumenda natus alias a quas, animi doloribus quos quis distinctio! Repellat, placeat ipsa aliquam quos blanditiis iste beatae impedit! Illum nisi, repellendus qui itaque beatae sapiente neque aliquid asperiores, veniam dicta quia? Dolor ea, autem, dolore pariatur odit, modi architecto quod fugit provident voluptatibus esse dignissimos unde a quia facere?</p>
+        <div className="text-white">
+            <h2 className="text-5xl text-center mt-28 font-bold">Technologies that I know</h2>
+            <div className="mt-20 flex gap-20">
+                <div className="w-1/2 flex items-center justify-center">
+                    <Lottie
+                        animationData={skillLottie}
+                        loop={true}
+                        className="w-96"
+                    ></Lottie>
+                </div>
+                <div className="w-1/2">
+                    <div className="flex items-center justify-center gap-3">
+                        <MdOutlineMonitor className="text-4xl text-[#f73378]" />
+                        <h2 className="text-4xl font-bold">Frontend Project Development</h2>
+                    </div>
+                    {/* Logos */}
+                    <div className="mt-8 flex justify-center gap-6">
+                        <div className="tooltip" data-tip="HTML5"><FaHtml5 className="text-6xl text-[#e34f26]" /></div>
+                        <div className="tooltip" data-tip="CSS3"><IoLogoCss3 className="text-6xl text-[#1472b7]" /></div>
+                        <div className="tooltip" data-tip="Tailwind"><RiTailwindCssFill className="text-6xl text-[#1cc0cd]" /></div>
+                        <div className="tooltip" data-tip="React Js"><FaReact className="text-6xl text-[#6cd6f3]" /></div>
+                    </div>
+                    <div>
+                        <div className="flex items-center gap-2 ml-6 mt-6">
+                            <HiLightningBolt className="text-xl text-[#f73378]" />
+                            <h2 className="text-[#8d8d8d] text-2xl">Building responsive web front-end using React.</h2>
+                        </div>
+                        <div className="flex items-center gap-2 ml-6 mt-6">
+                            <HiLightningBolt className="text-xl text-[#f73378]" />
+                            <h2 className="text-[#8d8d8d] text-2xl">Focus on creating dynamic and interactive user interfaces.</h2>
+                        </div>
+                        <div className="flex items-center gap-2 ml-6 mt-6">
+                            <HiLightningBolt className="text-xl text-[#f73378]" />
+                            <h2 className="text-[#8d8d8d] text-2xl">Using Tailwind, I build sleek web interfaces quickly.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
