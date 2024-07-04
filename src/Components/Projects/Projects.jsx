@@ -5,13 +5,13 @@ import paradiseBanner from "../../../public/paradise-of-earth-banner.png"
 
 const Projects = () => {
     return (
-        <div className="mx-4">
+        <div className="mx-5">
             <div className="text-white">
                 <h2 className="text-3xl lg:text-5xl text-center mt-16 lg:mt-40 font-bold">Recent projects that I have built</h2>
                 <div className="mt-28 flex flex-col gap-4 lg:gap-0 lg:flex-row lg:justify-evenly">
 
                     {/* Card 1 */}
-                    <div className="card glass w-72 lg:w-96 ">
+                    <div className="card glass w-72 lg:w-96 hover:shadow-lg hover:shadow-[#f73378]">
                         <figure>
                             <img
                                 src={redAidBanner}
@@ -49,7 +49,7 @@ const Projects = () => {
                     </div>
 
                     {/* Card 2 */}
-                    <div className="card glass w-72 lg:w-96 ">
+                    <div className="card glass w-72 lg:w-96 hover:shadow-lg hover:shadow-[#f73378]">
                         <figure>
                             <img
                                 src={infinityCareBanner}
@@ -87,7 +87,7 @@ const Projects = () => {
                     </div>
 
                     {/* Card 3 */}
-                    <div className="card glass w-72 lg:w-96 ">
+                    <div className="card glass w-72 lg:w-96 hover:shadow-lg hover:shadow-[#f73378]">
                         <figure>
                             <img
                                 src={paradiseBanner}
