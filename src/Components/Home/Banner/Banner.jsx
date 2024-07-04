@@ -49,11 +49,12 @@ const Banner = () => {
                 </a>
             </div>
             <div className="lg:w-1/2 px-2 flex justify-end bg-[#1d2026]">
-                <div className="">
+                <div className="mt-6 lg:mt-0">
                     {/* <img className="w-96 " src={animationGif} alt="" /> */}
                     <Lottie
                         animationData={LottieGif}
                         loop={true}
+                        className="w-56 lg:w-full"
                     ></Lottie>
                 </div>
             </div>
