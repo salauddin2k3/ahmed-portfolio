@@ -1,5 +1,8 @@
 import emailjs from '@emailjs/browser';
+import Lottie from 'lottie-react';
 import { useRef } from 'react';
+import contactLottie from "../../../public/contact-lottie.json"
+import toast from 'react-hot-toast';
 
 const Contact = () => {
     const form = useRef();
@@ -14,18 +17,47 @@ const Contact = () => {
             .then(
                 () => {
                     console.log('SUCCESS!');
+                    form.current.reset(); // Reset form fields
+                    toast.success('Message sent successfully!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 },
                 (error) => {
                     console.log('FAILED...', error.text);
+                    toast.error('Message failed to send. Please try again.', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 },
             );
     };
+
     return (
         <div className='text-white'>
             <h2 className="text-3xl lg:text-5xl text-center mt-16 lg:mt-32 font-bold">Contact Me</h2>
-            <div className='mt-6'>
-                <section className="p-6 dark:text-gray-800">
-                    <form  ref={form} onSubmit={sendEmail} noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-50">
+            <div className='mt-16 flex flex-col lg:flex-row'>
+                <div className="lg:w-1/2 flex items-center justify-center">
+                    <Lottie
+                        animationData={contactLottie}
+                        loop={true}
+                        className="w-56 lg:w-96"
+                    ></Lottie>
+                </div>
+                <section className="lg:w-1/2 p-6 dark:text-gray-800">
+                    <form ref={form} onSubmit={sendEmail} noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-50">
                         <h2 className="w-full text-3xl font-bold leading-tight">Fill up this form</h2>
                         <div>
                             <label className="block mb-1 ml-1">Name</label>
@@ -48,10 +80,5 @@ const Contact = () => {
         </div>
     );
 };
-
-// name="user_name"
-// name="user_email"
-// name="message"
-// type="submit" value="Send"
 
 export default Contact;

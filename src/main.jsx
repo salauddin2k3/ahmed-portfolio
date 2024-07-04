@@ -5,6 +5,7 @@ import Route from './Route/Route';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 import { CssBaseline } from '@mui/material';
+import { Toaster } from 'react-hot-toast';
 
 const theme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route></Route>
       </CssBaseline>
     </ThemeProvider>
+    <Toaster />
   </React.StrictMode>
 
 )
