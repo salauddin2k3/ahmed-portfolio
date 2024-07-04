@@ -6,21 +6,30 @@ import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 import BuildIcon from '@mui/icons-material/Build';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import { NavLink } from 'react-router-dom';
+import { HashLink as NavLink } from 'react-router-hash-link';
+import { useLocation } from 'react-router-dom';
+
+const navItems = [
+  { label: 'Home', icon: <HomeIcon />, to: '/#top' },
+  { label: 'Skills', icon: <BuildIcon />, to: '#skills' },
+  { label: 'Projects', icon: <WorkIcon />, to: '#projects' },
+  { label: 'Contact', icon: <ContactMailIcon />, to: '#contact' },
+];
 
 export default function SimpleBottomNavigation() {
+  const location = useLocation();
   const [value, setValue] = React.useState(0);
+
+  React.useEffect(() => {
+    const foundIndex = navItems.findIndex((item) => item.to === location.pathname);
+    if (foundIndex !== -1) {
+      setValue(foundIndex);
+    }
+  }, [location]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const navItems = [
-    { label: 'Home', icon: <HomeIcon />, to: '/' },
-    { label: 'Skills', icon: <BuildIcon />, to: '/skills' },
-    { label: 'Projects', icon: <WorkIcon />, to: '/projects' },
-    { label: 'Contact', icon: <ContactMailIcon />, to: '/contact' },
-  ];
 
   return (
     <Box sx={{ width: '100%', position: 'fixed', bottom: 0, zIndex: '1300' }}>
@@ -53,7 +62,13 @@ export default function SimpleBottomNavigation() {
             icon={item.icon}
             component={NavLink}
             to={item.to}
-            sx={{ color: value === index ? '#f73378' : '#686464' }}
+            smooth
+            sx={{
+              color: value === index ? '#f73378' : '#686464',
+              '&.Mui-selected': {
+                color: '#f73378',
+              },
+            }}
           />
         ))}
       </BottomNavigation>
