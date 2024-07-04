@@ -1,12 +1,57 @@
-
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 const Contact = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm('service_hgt3gix', 'template_hg9fycd', form.current, {
+                publicKey: 'lYGCP0zZ3y3iO-Deh',
+            })
+            .then(
+                () => {
+                    console.log('SUCCESS!');
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
+    };
     return (
-        <div>
-            <h2>Contact</h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eius. Magnam animi optio, blanditiis quia sapiente impedit aliquam provident quam, eos, quisquam non id laborum libero harum alias dolores reiciendis explicabo expedita. Vel aliquam tenetur quisquam laborum voluptatibus optio vero libero eos velit quae quod, commodi recusandae hic ad quidem error rerum unde cum eum at iste, culpa, assumenda perspiciatis. Dolores, eos ratione. Quaerat harum quis commodi iusto rem aliquam nisi dolor vero sequi ex facere corporis, eligendi, quos doloremque eos voluptates eius omnis enim ut ratione optio assumenda porro corrupti accusantium. Numquam, aut! Nisi ad eligendi reiciendis porro est facilis perspiciatis quaerat asperiores nesciunt consequuntur eum voluptatum quod modi facere quis corporis natus nulla rem, tempore, repellat similique non cumque? Laboriosam sapiente et saepe? Ab repellendus nemo doloribus sint nam, necessitatibus eaque recusandae quisquam, porro, tempore distinctio laudantium nobis adipisci voluptatibus est? Odio, totam corporis! Laboriosam at aut, vitae molestiae, quibusdam sit, enim doloremque excepturi alias corporis saepe iure similique veritatis optio est nisi. Dolorum ipsum voluptate eum qui, ab magni ut aliquam magnam vero atque praesentium beatae quasi repudiandae illo eaque enim animi reiciendis deleniti saepe delectus? Nihil magni quibusdam, quasi assumenda quis voluptatum veniam commodi nemo quaerat distinctio aut, adipisci dolores molestias error reprehenderit, facere maxime! Quam reprehenderit et facere ratione at ipsa, facilis unde? Quo velit rerum consequatur in delectus voluptas itaque ad dolorem totam ipsa labore, error ea accusantium corrupti. Consequatur quas ab consectetur asperiores dolores sequi similique minima reprehenderit voluptatem a fugit tempora quam facilis voluptates maxime, iste quo rerum voluptas assumenda aut, libero corporis tenetur rem. Asperiores repellendus, odit hic obcaecati doloribus animi at quos reprehenderit error harum quod repudiandae! Illum tempora necessitatibus praesentium, porro rerum ipsum incidunt. Harum nesciunt animi voluptatem, dicta incidunt facere laudantium aliquid recusandae aut molestias esse provident optio consequuntur iusto iste eos nam consequatur itaque assumenda odio minus sed voluptatum, fuga voluptates? Adipisci ab deserunt reiciendis, error quod aspernatur magni voluptas in debitis consectetur explicabo id nisi, est hic atque ipsa. Laborum nemo sed nam architecto alias repellendus repellat aperiam. Libero error hic consectetur distinctio inventore eveniet, nulla quis tenetur veniam quas non beatae necessitatibus voluptates, saepe officia facilis ipsam minus tempora dolore ipsa velit? Iusto, dolores autem sunt expedita inventore quae suscipit, nesciunt ratione temporibus quas, alias nobis. Unde illo nobis sapiente repudiandae? Enim hic repellendus architecto alias dolorum, minus facilis, asperiores, quo eum iusto tempore necessitatibus dolores labore fuga quia. Quisquam corporis animi quibusdam dolor debitis sequi dolores numquam odio amet voluptate! Iste perspiciatis corporis facere voluptatibus est veritatis voluptates saepe quae, expedita rerum quasi tenetur eaque ex magnam voluptatum repudiandae numquam accusamus, perferendis non ut tempore odio. Dolore a sint adipisci excepturi, quo libero nulla nostrum unde quos laudantium exercitationem voluptate? Necessitatibus deleniti non quod minima dolores sunt! Sint dolor, recusandae facilis quibusdam nobis doloremque corrupti non perferendis aperiam nam odio ipsa. Labore pariatur dicta autem dignissimos aspernatur quaerat fugiat molestiae cum recusandae! Tempore tenetur nulla, alias quaerat enim exercitationem similique labore reprehenderit sequi repellat.
+        <div className='text-white'>
+            <h2 className="text-3xl lg:text-5xl text-center mt-16 lg:mt-32 font-bold">Contact Me</h2>
+            <div className='mt-6'>
+                <section className="p-6 dark:text-gray-800">
+                    <form  ref={form} onSubmit={sendEmail} noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-50">
+                        <h2 className="w-full text-3xl font-bold leading-tight">Fill up this form</h2>
+                        <div>
+                            <label className="block mb-1 ml-1">Name</label>
+                            <input name="user_name" type="text" placeholder="Your name" required="" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:dark:ring-[#ba006e] dark:bg-gray-100" />
+                        </div>
+                        <div>
+                            <label className="block mb-1 ml-1">Email</label>
+                            <input name="user_email" type="email" placeholder="Your email" required="" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:dark:ring-[#ba006e] dark:bg-gray-100" />
+                        </div>
+                        <div>
+                            <label className="block mb-1 ml-1">Message</label>
+                            <textarea name="message" type="text" placeholder="Message..." className="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:dark:ring-[#ba006e] dark:bg-gray-100"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" value="Send" className="w-full px-4 py-2 font-bold rounded shadow hover:bg-[#ba006e] bg-[#277a6f] focus:dark:ring-[#ba006e] dark:text-gray-50">Send</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
         </div>
     );
 };
+
+// name="user_name"
+// name="user_email"
+// name="message"
+// type="submit" value="Send"
 
 export default Contact;
