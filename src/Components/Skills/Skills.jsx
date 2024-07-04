@@ -15,7 +15,7 @@ import { IoLogoFirebase } from "react-icons/io5";
 const Skills = () => {
     return (
         <div className="text-white">
-            <h2 className="text-3xl lg:text-5xl text-center mt-16 lg:mt-28 font-bold">Technologies that I know</h2>
+            <h2 className="text-3xl lg:text-5xl text-center mt-16 lg:mt-40 font-bold">Technologies that I know</h2>
 
             {/* ----------------First--------------------- */}
 

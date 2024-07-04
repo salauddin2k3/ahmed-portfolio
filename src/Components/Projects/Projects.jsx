@@ -1,12 +1,134 @@
-
+import { Link } from "react-router-dom";
+import redAidBanner from "../../../public/red-aid-banner.png"
+import infinityCareBanner from "../../../public/infinity-care-banner.png"
+import paradiseBanner from "../../../public/paradise-of-earth-banner.png"
 
 const Projects = () => {
     return (
-        <div>
-            <h2>Projects</h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sunt natus ab enim molestias esse atque deleniti odio impedit iure aliquid iusto et, optio ipsam dolore earum dolor hic praesentium eaque quis. Hic, quo veniam id nihil perspiciatis corporis nostrum in porro molestias voluptas omnis mollitia officiis blanditiis delectus animi, provident ea maxime enim vero quasi dolorum earum. Minus accusantium amet, libero eaque molestiae numquam sit vitae soluta ducimus quaerat sequi quasi, exercitationem, eius reiciendis. Hic nostrum perspiciatis voluptatibus obcaecati dolor officia ratione quas esse, explicabo amet ab sequi quibusdam iste numquam? Vero impedit, explicabo consequuntur incidunt eos magnam veniam corporis eius. Ea doloribus modi ducimus quasi ratione, quidem, officiis aliquid esse dolores illum quos qui quisquam cupiditate veniam, consectetur sint unde ad impedit architecto! Architecto ea ipsa odio eligendi consequuntur ab sunt laudantium quam et vitae, nulla, iure harum molestiae! Harum dicta ut dolorum est ex aut error quia eos sed tenetur ducimus molestiae labore, fuga perferendis, inventore ipsam, neque tempora? Quo sunt quas temporibus velit voluptate accusamus necessitatibus cumque vel expedita consectetur sapiente, doloremque laboriosam enim, illo voluptates aliquid facilis. Eos sint odio sunt provident aut consequatur cum saepe beatae illum, laudantium enim dicta. Ducimus, consequuntur consectetur commodi illo tempora saepe veritatis quis voluptatum eius minima similique rerum eligendi officia aut hic sed aperiam explicabo facere adipisci cupiditate, temporibus earum nesciunt blanditiis? Nihil neque soluta minus cumque maxime! Aperiam voluptas deserunt eveniet reiciendis. Doloribus nostrum porro blanditiis aliquid omnis impedit et deleniti minima eligendi fugit ducimus placeat, voluptas nisi accusamus. Consectetur impedit nisi facilis, animi, vero ut quibusdam maxime tempora quam ducimus assumenda laboriosam laudantium, earum dignissimos veniam? Repudiandae ea nemo expedita fugit a eius praesentium aliquam quidem voluptatum numquam sequi quo, consectetur ullam cupiditate sint voluptas tempore, unde enim dicta architecto! Nesciunt placeat impedit molestiae saepe repudiandae! Autem facere accusantium officia, alias tempore eius quidem ipsam reprehenderit impedit, commodi in ea blanditiis incidunt voluptates dolores corporis, pariatur dignissimos nihil nam porro voluptate veritatis corrupti! Molestiae quae distinctio accusamus iure deleniti consectetur aspernatur id voluptatibus est, fuga in quia. Laborum hic eum vitae aliquid illum. Dolore, repellat? Nam minima, recusandae quia sapiente non iusto eius animi dolores. Voluptatum inventore reprehenderit, optio voluptates quo facere deserunt temporibus nostrum fuga. Magnam, molestiae! Fuga placeat blanditiis porro tempore dolores vero amet, sint saepe labore delectus non corporis officia incidunt. Corporis, reiciendis. Iusto eum facilis asperiores quidem autem alias fugit beatae aliquam labore quam reiciendis voluptatibus ab minus, sunt porro earum at in consequuntur debitis repudiandae veniam aut fuga omnis. Praesentium repellendus nemo corporis veniam explicabo labore illum magnam esse delectus optio qui odit recusandae vitae officiis voluptatem necessitatibus inventore, nostrum quibusdam ducimus dicta! In at deleniti quos, officiis voluptates consequatur nesciunt voluptatum eveniet vero dolorum laborum officia blanditiis quia, ipsam esse totam culpa, reprehenderit assumenda harum minima. Ut omnis, atque perferendis culpa suscipit voluptates hic aspernatur rerum, necessitatibus, at iusto eaque assumenda iste architecto repellat magnam harum maxime vitae sapiente dolorum nesciunt libero fugit unde. Doloribus quae recusandae quidem voluptatem rerum.
+        <div className="mx-4">
+            <div className="text-white">
+                <h2 className="text-3xl lg:text-5xl text-center mt-16 lg:mt-40 font-bold">Recent projects that I have built</h2>
+                <div className="mt-28 flex flex-col gap-4 lg:gap-0 lg:flex-row lg:justify-evenly">
+
+                    {/* Card 1 */}
+                    <div className="card glass w-72 lg:w-96 ">
+                        <figure>
+                            <img
+                                src={redAidBanner}
+                                alt="red-aid" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="mt-0 card-title text-3xl"><span className="text-red-500">Red</span> Aid</h2>
+                            <p>Connecting donors with those in need, Platform makes blood donation easy and impactful. Join us in saving lives with every donation.</p>
+                            <div>
+                                <h2 className="text-xl font-bold text-[#f73378]">Features:</h2>
+                                <li>Discover Volunteer Opportunities.</li>
+                                <li>Connect with Organizations.</li>
+                                <li>Community Engagement.</li>
+                            </div>
+                            <div className="mt-1">
+                                <h2 className="text-xl font-bold text-[#f73378]">Technology Stack:</h2>
+                                <li>ReactJS.</li>
+                                <li>NodeJS & Express</li>
+                                <li>Mongodb</li>
+                                <li>Lottie React for animations</li>
+                            </div>
+                            <div className="mt-1">
+                                <h2 className="text-xl font-bold text-[#f73378]">Github Link:</h2>
+                                <div className="w-full flex mt-2 gap-3">
+                                    <div className="w-1/2"><Link to="https://github.com/salauddin2k3/Red-Aid-Client" target="__blank"><button className="btn btn-outline border-[#277a6f] w-full font-bold hover:bg-[#ba006e] text-white">Client</button></Link></div>
+                                    <div className="w-1/2"><Link to="https://github.com/salauddin2k3/Red-Aid-Server" target="__blank"><button className="btn btn-outline w-full border-[#277a6f] font-bold hover:bg-[#ba006e]  text-white">Server</button></Link></div>
+                                </div>
+                            </div>
+                            <Link to="https://red-aid-ad7dd.web.app/" target="__blank">
+                                <div className="mt-5">
+                                    <button className="btn bg-[#ba006e] font-bold hover:bg-[#277a6f] border-none w-full text-white">See Live Project</button>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Card 2 */}
+                    <div className="card glass w-72 lg:w-96 ">
+                        <figure>
+                            <img
+                                src={infinityCareBanner}
+                                alt="red-aid" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="mt-0 card-title text-3xl text-[#ba006e]"><span className="text-[#048d9a]">Infinity</span> Care</h2>
+                            <p>Infinity Care connects volunteers with impactful opportunities in healthcare, education, social service, and more. Make a difference in your community.</p>
+                            <div>
+                                <h2 className="text-xl font-bold text-[#f73378]">Features:</h2>
+                                <li>Simplifies finding volunteer work.</li>
+                                <li>Facilitates personal growth.</li>
+                                <li>Encourages a culture of giving.</li>
+                            </div>
+                            <div className="mt-1">
+                                <h2 className="text-xl font-bold text-[#f73378]">Technology Stack:</h2>
+                                <li>ReactJS.</li>
+                                <li>NodeJS & Express</li>
+                                <li>Mongodb</li>
+                                <li>Firebase for hosting services</li>
+                            </div>
+                            <div className="mt-1">
+                                <h2 className="text-xl font-bold text-[#f73378]">Github Link:</h2>
+                                <div className="w-full flex mt-2 gap-3">
+                                    <div className="w-1/2"><Link to="https://github.com/salauddin2k3/Infinity-Care-Client" target="__blank"><button className="btn btn-outline border-[#277a6f] w-full font-bold hover:bg-[#ba006e] text-white">Client</button></Link></div>
+                                    <div className="w-1/2"><Link to="https://github.com/salauddin2k3/Infinity-Care-Server" target="__blank"><button className="btn btn-outline w-full border-[#277a6f] font-bold hover:bg-[#ba006e]  text-white">Server</button></Link></div>
+                                </div>
+                            </div>
+                            <Link to="https://infinity-care-a9b7b.web.app/" target="__blank">
+                                <div className="mt-5">
+                                    <button className="btn bg-[#ba006e] font-bold hover:bg-[#277a6f] border-none w-full text-white">See Live Project</button>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Card 3 */}
+                    <div className="card glass w-72 lg:w-96 ">
+                        <figure>
+                            <img
+                                src={paradiseBanner}
+                                alt="red-aid" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="mt-0 card-title text-gray-900 text-3xl">Paradise of Earth</h2>
+                            <p>Explore SoutheastAsia showcases the beauty of Southeast Asia, from vibrant cities to serene beaches, highlighting its diverse cultures and landscapes.</p>
+                            <div>
+                                <h2 className="text-xl font-bold text-[#f73378]">Features:</h2>
+                                <li>Relax on serene beaches.</li>
+                                <li>Discover diverse cultures.</li>
+                                <li>CEnjoy stunning scenery.</li>
+                            </div>
+                            <div className="mt-1">
+                                <h2 className="text-xl font-bold text-[#f73378]">Technology Stack:</h2>
+                                <li>ReactJS.</li>
+                                <li>NodeJS & Express</li>
+                                <li>Mongodb</li>
+                                <li>React-simple-typewriter</li>
+                            </div>
+                            <div className="mt-1">
+                                <h2 className="text-xl font-bold text-[#f73378]">Github Link:</h2>
+                                <div className="w-full flex mt-2 gap-3">
+                                    <div className="w-1/2"><Link to="https://github.com/salauddin2k3/Paradise-of-Earth-Client" target="__blank"><button className="btn btn-outline border-[#277a6f] w-full font-bold hover:bg-[#ba006e] text-white">Client</button></Link></div>
+                                    <div className="w-1/2"><Link to="https://github.com/salauddin2k3/Paradise-of-Earth-Server" target="__blank"><button className="btn btn-outline w-full border-[#277a6f] font-bold hover:bg-[#ba006e]  text-white">Server</button></Link></div>
+                                </div>
+                            </div>
+                            <Link to="https://paradise-of-earth.web.app/" target="__blank">
+                                <div className="mt-5">
+                                    <button className="btn bg-[#ba006e] font-bold hover:bg-[#277a6f] border-none w-full text-white">See Live Project</button>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
+
+// transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300
 
 export default Projects;
