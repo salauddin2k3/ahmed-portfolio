@@ -2,7 +2,7 @@ import Contact from "../Contact/Contact";
 import Projects from "../Projects/Projects";
 import Skills from "../Skills/Skills";
 import Banner from "./Banner/Banner";
-import Education from "./Education/Education";
+// import Education from "./Education/Education";
 
 
 const Home = () => {
@@ -17,9 +17,9 @@ const Home = () => {
                     <section id="projects">
                         <Projects></Projects>
                     </section>
-                    <section id="education">
+                    {/* <section id="education">
                         <Education></Education>
-                    </section>
+                    </section> */}
                     <section id="contact">
                         <Contact></Contact>
                     </section>

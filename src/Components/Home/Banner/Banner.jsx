@@ -5,7 +5,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import Lottie from "lottie-react";
 import LottieGif from "../../../../public/typing-lottie.json"
 import { Link } from "react-router-dom";
-import myResume from "../../../../public/resume.pdf"
+// import myResume from "../../../../public/resume.pdf"
 
 
 const Banner = () => {
@@ -42,7 +42,7 @@ const Banner = () => {
                         <div className=" w-fit p-2 rounded-full bg-[#e94435]"><FaGoogle className="text-2xl lg:text-3xl text-white" /></div>
                     </Link>
                 </div>
-                <a href={myResume} download="Ahmed_Resume.pdf">
+                <a target="__blank" href="https://drive.google.com/file/d/1u8mMNgPFqgCQQ2IMTevp3Qe7hHmYRwjV/view" download="Ahmed_Resume.pdf">
                     <div className="flex items-center justify-center lg:justify-start">
                         <button className="btn bg-[#f73378] border-none text-white lg:text-lg hover:bg-[#f73378] hover:shadow-lg hover:shadow-[#f73378] mt-8">Download My Resume</button>
                     </div>
